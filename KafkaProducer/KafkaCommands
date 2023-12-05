@@ -1,0 +1,26 @@
+********************CMD Line Kafka****************
+Reciver 
+bin\windows\kafka-console-consumer.bat --topic new_topic_testing  --from-beginning   --bootstrap-server localhost:9092
+
+
+
+*Sender
+bin\windows\kafka-console-producer.bat --topic user-topic --bootstrap-server localhost:9092
+
+*Start Zookeeper
+bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+
+*start server
+bin\windows\kafka-server-start.bat config\server.properties
+
+*for partation inside topic
+bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092  --create  --topic user-topic --partitions 3
+
+*to check the partation or info about the partitions
+bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092 --describe --topic user_topic
+
+*to check all of topic in my kafka
+.\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
+
+*cretae  a new topic in kafka
+bin/kafka-topics.sh --create --topic your_topic_name --bootstrap-server localhost:9092 
